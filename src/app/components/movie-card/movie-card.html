@@ -1,0 +1,25 @@
+<article class="movie-card">
+  <div class="poster-wrapper">
+    <img
+      class="poster"
+      [src]="movie.poster"
+      [alt]="movie.title"
+    />
+
+    <span class="rating">
+      ⭐ {{ movie.rating }}
+    </span>
+  </div>
+
+  <div class="movie-content">
+    <h2>{{ movie.title }}</h2>
+
+    <p class="meta">
+      {{ movie.year }} · {{ movie.genre }}
+    </p>
+
+    <button type="button" (click)="addToFavorites()">
+      Ajouter aux favoris
+    </button>
+  </div>
+</article>
