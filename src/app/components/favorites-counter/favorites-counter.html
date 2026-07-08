@@ -1,15 +1,11 @@
 <section class="counter-card">
   <div>
     <p class="label">Films favoris</p>
-    <h2>{{ favoris() }}</h2>
+    <h2>{{ moviesService.favoritesCount() }}</h2>
   </div>
 
   <div>
-    <p class="label">Score doublé</p>
-    <h2>{{ doubleFavoris() }}</h2>
+    <p class="label">Score bonus</p>
+    <h2>{{ moviesService.bonusScore() }}</h2>
   </div>
-
-  <button type="button" (click)="ajouterFavori()">
-    +
-  </button>
 </section>

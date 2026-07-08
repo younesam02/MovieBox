@@ -5,4 +5,6 @@ export interface Movie {
   rating: number;
   year: number;
   genre: string;
+  releaseDate: Date;
+  isFavorite: boolean
 }

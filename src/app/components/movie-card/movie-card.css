@@ -1,21 +1,35 @@
 .movie-card {
   background: #111827;
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 18px;
   overflow: hidden;
+
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .movie-card:hover {
-  transform: translateY(-6px);
   box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+}
+
+.favorite-card {
+  border-color: #facc15;
+
+  box-shadow:
+    0 0 0 2px rgba(250, 204, 21, 0.5),
+    0 24px 60px rgba(250, 204, 21, 0.2);
 }
 
 .poster-wrapper {
   position: relative;
   height: 360px;
   overflow: hidden;
+  background: #020617;
 }
 
 .poster {
@@ -29,25 +43,37 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(17, 24, 39, 0.9);
   padding: 8px 12px;
-  border-radius: 999px;
+  border-radius: 9999px;
+  color: white;
   font-weight: 700;
-  font-size: 14px;
 }
 
 .movie-content {
   padding: 20px;
 }
 
+.genre {
+  margin: 0 0 8px;
+  color: #facc15;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
 .movie-content h2 {
   margin: 0 0 8px;
-  font-size: 22px;
 }
 
 .meta {
-  margin: 0 0 18px;
+  margin: 0 0 12px;
   color: #9ca3af;
+}
+
+.stars {
+  margin: 0 0 20px;
+  color: #facc15;
+  font-size: 20px;
 }
 
 button {
@@ -55,11 +81,14 @@ button {
   border: none;
   background: #facc15;
   color: #111827;
-  padding: 12px 16px;
+
+  padding: 12px;
   border-radius: 12px;
+
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+
+  transition: 0.2s;
 }
 
 button:hover {

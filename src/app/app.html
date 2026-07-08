@@ -1,22 +1,30 @@
 <main class="app-shell">
   <section class="hero">
+    <p class="eyebrow">Angular Jour 2</p>
+
     <h1>{{ appTitle }}</h1>
+
     <p class="subtitle">
-      Découvrez une sélection de films populaires et ajoutez vos préférés.
+      MovieBox affiche maintenant une liste dynamique depuis un service Angular.
     </p>
   </section>
 
-  <app-favorites-counter></app-favorites-counter>
+  <app-favorites-counter />
 
   <section class="movies-section">
     <div class="section-header">
       <h2>Films recommandés</h2>
-      <p>{{ movies.length }} films disponibles</p>
+      <p>{{ movies().length }} films disponibles</p>
     </div>
 
     <div class="movies-grid">
-      @for (movie of movies; track movie.id) {
-        <app-movie-card [movie]="movie"></app-movie-card>
+      @for (movie of movies(); track movie.id) {
+        <app-movie-card
+          [movie]="movie"
+          (favoriToggle)="toggleFavori($event)"
+        />
+      } @empty {
+        <p class="empty-message">Aucun film disponible.</p>
       }
     </div>
   </section>

@@ -1,25 +1,46 @@
-<article class="movie-card">
+<article
+  class="movie-card"
+  appHighlight
+  [ngClass]="{ 'favorite-card': movie().isFavorite }"
+>
   <div class="poster-wrapper">
     <img
       class="poster"
-      [src]="movie.poster"
-      [alt]="movie.title"
+      [src]="movie().poster"
+      [alt]="movie().title"
     />
 
-    <span class="rating">
-      ⭐ {{ movie.rating }}
+    <span
+      class="rating"
+      [ngStyle]="{
+        backgroundColor: movie().rating >= 8.8 ? '#16a34a' : '#111827'
+      }"
+    >
+      {{ movie().rating | number:'1.1-1' }}
     </span>
   </div>
 
   <div class="movie-content">
-    <h2>{{ movie.title }}</h2>
+    <p class="genre">
+      {{ movie().genre | uppercase }}
+    </p>
+
+    <h2>{{ movie().title }}</h2>
 
     <p class="meta">
-      {{ movie.year }} · {{ movie.genre }}
+      {{ movie().year }} · Sortie : {{ movie().releaseDate | date:'dd/MM/yyyy' }}
+    </p>
+
+    <p class="stars">
+      {{ movie().rating | noteEnEtoiles }}
     </p>
 
     <button type="button" (click)="addToFavorites()">
-      Ajouter aux favoris
+      @if (movie().isFavorite) {
+        Retirer des favoris
+      } @else {
+        Ajouter aux favoris
+      }
     </button>
   </div>
 </article>

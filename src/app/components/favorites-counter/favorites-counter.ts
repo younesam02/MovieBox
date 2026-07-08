@@ -1,4 +1,5 @@
-import { Component, computed, Input, signal } from '@angular/core';
+import { Component, computed, inject, Inject, Input, signal } from '@angular/core';
+import { Movies } from '../../services/movies';
 
 @Component({
   selector: 'app-favorites-counter',
@@ -7,13 +8,5 @@ import { Component, computed, Input, signal } from '@angular/core';
   styleUrl: './favorites-counter.css',
 })
 export class FavoritesCounter {
-
-  favoris = signal(0);
-
-  doubleFavoris = computed(() => this.favoris() * 2);
-
-  ajouterFavori() {
-    this.favoris.update(value => value + 1);
-  }
-
+  moviesService = inject(Movies);
 }
